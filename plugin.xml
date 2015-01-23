@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="xuandac.com.vn.cordova.appname"
+    version="0.1.1">
+
+    <name>AppName</name>
+    <description>
+        This plugin will return the version of your App that you have set in
+        packaging it. I.e. it will always match the version in the app store.
+    </description>
+    <license>MIT</license>
+
+    <engines>
+        <!--
+            Cordova 2.8.0 is all I have tested on - it should work fine with earlier versions.
+            Please modify the below line, test, and submit a PR if it works for you.
+        -->
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/AppNamePlugin.js">
+       <clobbers target="cordova.getAppName" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AppName">
+                <param name="android-package" value="xuandac.com.vn.cordova.AppName"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/AppName.java" target-dir="src/xuandac/com/vn/cordova" />
+    </platform>
+</plugin>
